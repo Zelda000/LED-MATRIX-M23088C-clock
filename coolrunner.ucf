@@ -1,0 +1,73 @@
+#CoolRunner-II CPLD Starter Board
+
+#Inputs
+#Pushbuttons
+NET BTN0        LOC = P143;
+NET BTN1        LOC = P94;
+#Slide Switches
+NET SW0         LOC = P39;
+#NET SW1         LOC = P124;
+
+#Outputs
+#LEDs
+NET LED<0>      LOC = P69;
+NET LED<1>      LOC = P68;
+NET LED<2>      LOC = P66;
+NET LED<3>      LOC = P64;
+
+#Seven-Segment Display(s)
+#NET D_POS<0>    LOC = P126;
+#NET D_POS<1>    LOC = P128;
+#NET D_POS<2>    LOC = P129;
+#NET D_POS<3>    LOC = P130;
+#NET D_SEG<0>    LOC = P56;     # a
+#NET D_SEG<1>    LOC = P53;     # b
+#NET D_SEG<2>    LOC = P60;     # c
+#NET D_SEG<3>    LOC = P58;     # d
+#NET D_SEG<4>    LOC = P57;     # e
+#NET D_SEG<5>    LOC = P54;     # f
+#NET D_SEG<6>    LOC = P61;     # g
+#NET D_SEG<7>    LOC = P59;     # dp
+
+# Clock
+NET CLK        LOC = P38;
+
+
+
+NET RD<0>		LOC = P10;
+NET RD<1>		LOC = P9;
+NET RD<2>		LOC = P7;
+NET RD<3>		LOC = P6;       #RED
+NET RD<4>		LOC = P5;
+NET RD<5>		LOC = P4;
+NET RD<6>		LOC = P3;
+NET RD<7>		LOC = P2;
+#--------------------------------j2
+NET GR<0>		LOC = P142;
+NET GR<1>		LOC = P140;
+NET GR<2>		LOC = P139;
+NET GR<3>		LOC = P138;     #GREEN
+NET GR<4>		LOC = P136;
+NET GR<5>		LOC = P135;
+NET GR<6>		LOC = P134;
+NET GR<7>		LOC = P133;
+#-----------------------------------j3
+NET RAD<0>		LOC = P119; 
+
+NET RAD<1>		LOC = P117;   #RADEK
+
+NET RAD<2>		LOC = P115;
+NET RAX<0>		LOC = P118;
+NET RAX<1>		LOC = P116;
+NET RAX<2>		LOC = P114;
+#NET VYST<4>		LOC = P113;
+#NET VYST<5>		LOC = P112;
+#----------------------------------------j4
+#NET VYST<6>		LOC = P104;
+#NET VYST<7>		LOC = P103;
+#NET VYST<8>		LOC = P102;
+#NET VYST<9>		LOC = P101;
+#NET VYST<10>		LOC = P100;
+#NET VYST<11>		LOC = P98;
+#NET VYST<12>		LOC = P96;
+#NET VYST<13>		LOC = P97;
