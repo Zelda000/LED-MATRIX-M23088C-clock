@@ -1,9 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-
-
-
 -- Input/output description
 entity top is
     port (
@@ -12,19 +9,15 @@ entity top is
         SW0: in std_logic;     -- button 0
         LED: out std_logic_vector(3 downto 0);
         CLK: in std_logic;
-        RD: out std_logic_vector(7 downto 0);
-        GR: out std_logic_vector(7 downto 0);
+        PAN1: out std_logic_vector(7 downto 0);
+        PAN2: out std_logic_vector(7 downto 0);
         RAD: out std_logic_vector(2 downto 0);
         RAX: out std_logic_vector(2 downto 0)
-        
-        
          );
 end top;
-
 -- Internal structure description
 architecture Behavioral of top is
         signal a: std_logic_vector(2 downto 0) := "000";
-        signal a1: std_logic_vector(2 downto 0) := "000";
         signal clk_1: std_logic := '0';
         signal tmp_1: std_logic_vector(15 downto 0) := x"0000"; 
         signal S: std_logic_vector(5 downto 0) := "000000";
@@ -94,7 +87,7 @@ begin
 
             
         with M select 
-                RD  <=          POM when  "000001", 
+                PAN1  <=        POM when  "000001", 
                                 POM1 when "000010",
                                 POM2 when "000011",   
                                 POM3 when "000100",
@@ -157,8 +150,8 @@ begin
                                 POM   when others;
                         
         with H select 
-                GR  <=          POM when  "000001", 
-                                 POM1 when "000010",
+                PAN2  <=        POM when  "000001", 
+                                POM1 when "000010",
                                 POM2 when "000011",   
                                 POM3 when "000100",
                                 POM4 when "000101",
