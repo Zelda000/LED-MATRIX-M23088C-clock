@@ -34,32 +34,32 @@ NET CLK        LOC = P38;
 
 
 
-NET RD<0>		LOC = P10;
-NET RD<1>		LOC = P9;
-NET RD<2>		LOC = P7;
-NET RD<3>		LOC = P6;       #RED
-NET RD<4>		LOC = P5;
-NET RD<5>		LOC = P4;
-NET RD<6>		LOC = P3;
-NET RD<7>		LOC = P2;
+NET PAN1<0>		LOC = P10;
+NET PAN1<1>		LOC = P9;
+NET PAN1<2>		LOC = P7;
+NET PAN1<3>		LOC = P6;       #RED
+NET PAN1<4>		LOC = P5;
+NET PAN1<5>		LOC = P4;
+NET PAN1<6>		LOC = P3;
+NET PAN1<7>		LOC = P2;
 #--------------------------------j2
-NET GR<0>		LOC = P142;
-NET GR<1>		LOC = P140;
-NET GR<2>		LOC = P139;
-NET GR<3>		LOC = P138;     #GREEN
-NET GR<4>		LOC = P136;
-NET GR<5>		LOC = P135;
-NET GR<6>		LOC = P134;
-NET GR<7>		LOC = P133;
+NET PAN2<0>		LOC = P142;
+NET PAN2<1>		LOC = P140;
+NET PAN2<2>		LOC = P139;
+NET PAN2<3>		LOC = P138;     #GREEN
+NET PAN2<4>		LOC = P136;
+NET PAN2<5>		LOC = P135;
+NET PAN2<6>		LOC = P134;
+NET PAN2<7>		LOC = P133;
 #-----------------------------------j3
 NET RAD<0>		LOC = P119; 
-
-NET RAD<1>		LOC = P117;   #RADEK
-
+NET RAD<1>		LOC = P117;   #RADEK PAN1
 NET RAD<2>		LOC = P115;
+
 NET RAX<0>		LOC = P118;
-NET RAX<1>		LOC = P116;
+NET RAX<1>		LOC = P116;   #RADEK PAN2
 NET RAX<2>		LOC = P114;
+
 #NET VYST<4>		LOC = P113;
 #NET VYST<5>		LOC = P112;
 #----------------------------------------j4
