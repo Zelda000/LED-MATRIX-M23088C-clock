@@ -29,29 +29,66 @@ architecture Behavioral of top is
 		POM31,POM32,POM33,POM34,POM35,POM36,POM37,POM38,POM39,POM40,
 		POM41,POM42,POM43,POM44,POM45,POM46,POM47,POM48,POM49,POM50,
 		POM51,POM52,POM53,POM54,POM55,POM56,POM57,POM58,POM59 : std_logic_vector(7 downto 0);
-        
+       signal Q1, Q2, Q3, Q_OUT : std_logic;
+       signal Q4, Q5, Q6, Q_OUT2, x,y : std_logic;         
 begin
     process (CLK)
     begin
-        if rising_edge(CLK) then
-           tmp_1 <= tmp_1 + 1;
-            if tmp_1 = x"1388" then
-                tmp_1 <= x"0000";
-                clk_1 <= not clk_1;
-            end if;
+       	 if rising_edge(CLK) then
+          	tmp_1 <= tmp_1 + 1;
+            	if tmp_1 = x"1388" then
+                	tmp_1 <= x"0000";
+                	clk_1 <= not clk_1;
+            	end if;
 
-            RAD <= a;
-            RAX <= a;
-            if a = "111" then
-               a <= "000";
-            end if;
-            a <= a + "001";  
+            	RAD <= a;
+            	RAX <= a;
+            	if a = "111" then
+               		a <= "000";
+            	end if;
+            	a <= a + "001";  
+		if BTN0 = '1' then	
+			Q1 <= '0';
+			Q2 <= '0';
+			Q3 <= '0';
+			y <= '0';
+		else
+			Q4 <= not BTN0;
+			Q5 <= Q4;
+			Q6 <= Q5;
+		end if;
+		Q_OUT2 <= Q4 AND Q5 AND Q6 AND (NOT x);
+
+		if BTN1 = '1' then	
+			Q4 <= '0';
+			Q5 <= '0';
+			Q6 <= '0';
+			x <= '0';
+		else
+			Q4 <= not BTN1;
+			Q5 <= Q4;
+			Q6 <= Q5;
+		end if;
+					
+		Q_OUT2 <= Q4 AND Q5 AND Q6 AND (NOT y);
+		if Q_OUT = '1' then
+			Q1 <= '0';
+			Q2 <= '0';
+			Q3 <= '0'; 
+			x <= '1';
+		end if;
+		if Q_OUT2 = '1' then
+			Q4 <= '0';
+			Q5 <= '0';
+			Q6 <= '0';
+			y <= '1';
+			end if;
         end if;
     end process;
     
 
     
-    process (clk_1)
+    process (clk_1,Q_OUT2,Q_OUT)
     begin
         if rising_edge(clk_1) then
                 S <= S + "000001";
@@ -80,7 +117,14 @@ begin
 		if H = "011001" then
 			H<= "000001";
 		end if;    
-        end if;          
+        end if;
+
+		if Q_OUT2 = '1' then
+			H <=H + 1;
+		end if;
+		if Q_OUT = '1' then
+			M <=M + 1;
+		end if;
     end process;
 
 
