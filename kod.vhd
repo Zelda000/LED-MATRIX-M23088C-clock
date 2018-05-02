@@ -37,15 +37,17 @@ begin
        	 if rising_edge(CLK) then
           	tmp_1 <= tmp_1 + 1;
             	if tmp_1 = x"1388" then
-                	tmp_1 <= x"0000";
+                	tmp_1 <= x"0000";		--GENEROVÁNÍ SIGNÁLU S PERIODOU 1 SEKUDA
                 	clk_1 <= not clk_1;
             	end if;
 
             	RAD <= a;
             	RAX <= a;
-            	if a = "111" then
+            	if a = "111" then			-- ČÍTAČ OD 0 DO 7, URČUJÍCI HODNOTU ŘÁDKU
                		a <= "000";
             	end if;
+			
+			
             	a <= a + "001";  
 		if BTN0 = '1' then	
 			Q1 <= '0';
