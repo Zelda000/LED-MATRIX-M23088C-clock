@@ -49,7 +49,7 @@ begin
             	a <= a + "001";  
 		if BTN0 = '1' then	
 			Q1 <= '0';
-			Q2 <= '0';
+			Q2 <= '0';	-- ošetření zákmitu tlačítka BTN0
 			Q3 <= '0';
 			y <= '0';
 		else
@@ -57,13 +57,16 @@ begin
 			Q5 <= Q4;
 			Q6 <= Q5;
 		end if;
+			
 		Q_OUT2 <= Q4 AND Q5 AND Q6 AND (NOT x);
+
+
 
 		if BTN1 = '1' then	
 			Q4 <= '0';
 			Q5 <= '0';
 			Q6 <= '0';
-			x <= '0';
+			x <= '0';		-- ošetření zákmitu tlačítka BTN1
 		else
 			Q4 <= not BTN1;
 			Q5 <= Q4;
@@ -92,28 +95,30 @@ begin
     begin
         if rising_edge(clk_1) then
                 S <= S + "000001";
-                if M = "000000" then
-                        M <= "000001";
-                end if;
+	    
+              
                     
                 if S = "000000" then
                         S <= "000010";
-                end if;
-                    
-                if H = "000000" then
-                        H <= "000001";
-                end if;
-            
-		if S = "111100" then
+                end if;				-- ČÍTAČ SEKUND
+		if S = "111100" then			
 			S <= "000000";
 			M <= M + "000001";
-		end if;
+		end if;		
 			
-		if M = "111101" then
+			
+                if M = "000000" then
+                        M <= "000001";
+                end if;
+		if M = "111101" then		--ČÍTAČ MINUT
 			H<= H + 1;
                         M<= "000000";
 		end if;
 			
+			
+                if H = "000000" then
+                        H <= "000001";
+                end if;				--ČÍTAČ HODIN
 		if H = "011001" then
 			H<= "000001";
 		end if;    
@@ -121,7 +126,7 @@ begin
 
 		if Q_OUT2 = '1' then
 			H <=H + 1;
-		end if;
+		end if;				-- NASTAVOVÁNÍ ČASU POMOCÍ BTN0 A BTN1
 		if Q_OUT = '1' then
 			M <=M + 1;
 		end if;
@@ -143,7 +148,7 @@ begin
                                 POM9 when "001010",
 				POM10 when "001011",
 				POM11 when "001100",
-				POM12 when "001101",
+				POM12 when "001101",	-- VÝBĚR ZORAZOVANÉHO ČÍSLA NA PANEL 1
 				POM13 when "001110",
 				POM14 when "001111",
 				POM15 when "010000",
@@ -204,7 +209,7 @@ begin
                                 POM7 when "001000",
                                 POM8 when "001001",
                                 POM9 when "001010",
-				POM10 when "001011",
+				POM10 when "001011",	-- VÝBĚR ZORAZOVANÉHO ČÍSLA NA PANEL 2
 				POM11 when "001100",
 				POM12 when "001101",
 				POM13 when "001110",
@@ -267,7 +272,7 @@ begin
                             "00011000" when "001",     
                             "01011010" when "010",    
                             "01011010" when "011",    
-                            "01011010" when "100",     
+                            "01011010" when "100",     		-- DEFINICE JEDNOTLIVÝCH SYMBOLŮ(ČÍSEL)
                             "01011010" when "101",    
                             "01011010" when "110",
                             "01011010" when "111",
